@@ -1,0 +1,109 @@
+ <!-- About Section with Parallax Effect -->
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+ </head>
+ <body>
+    <link rel="stylesheet" href="./design/css/style.css">
+ <link rel="stylesheet" href="./design/css/mobile.css">
+
+ <nav class="navbar">
+    <div class="container">
+        <a class="navbar-brand" href="#">
+            <img src="./pty.png" alt="Logo"> <!-- Replace with your logo URL -->
+        </a>
+        <ul class="nav-links">
+            <li><a href="./home-page.html">Home</a></li>
+            <li><a href="./product.html">Product</a></li>
+            <li><a href="./about_as.html">About</a></li>
+            <li><a href="./contac.html">Contact</a></li>
+            <li><a href="./hekp.html">Help</a></li>
+           <!-- Cart Container -->
+<div class="cart-container">
+🛒 <span id="cart-count">0</span>
+<div id="cart-dropdown" class="cart-dropdown">
+    <p id="empty-message">Your cart is empty</p>
+    <ul id="cart-items"></ul>
+    <p>Total: ₱ <span id="cart-total">0</span></p>
+    <button id="checkout-btn" class="checkout-btn" onclick="proceedToCheckout()">Proceed to Checkout</button>
+</div>
+</div>
+
+<!-- Checkout    Modal -->
+<div id="checkout-modal" class="modal">
+<div class="modal-content">
+    <span class="close-btn" onclick="closeCheckoutModal()">&times;</span>
+    <h2>Checkout Details</h2>
+    <ul id="checkout-items"></ul>
+    <p><strong>Total: ₱ <span id="checkout-total">0</span></strong></p>
+    <button class="confirm-btn" onclick="confirmOrder()">Confirm Order</button>
+</div>
+</div>
+
+            
+</nav>
+ <section class="about-section" id="about">
+    <div class="about-content">
+        <h2>About Us</h2>
+        <p>Welcome to our farm! We pride ourselves on raising the healthiest 
+            and happiest chickens, ensuring you get the best eggs and poultry products every 
+            time. Our farm is built on love, care, and sustainability. Join us in supporting 
+            local poultry farming!</p>
+    </div>
+    <div class="about-image">
+        <img src="./OIP (1).jpg" alt="Happy Chickens on the Farm">
+    </div>
+</section>
+
+
+ 
+<br><br><br>
+<footer class="footer">
+    <div class="footer-container">
+        <!-- Company Info Section -->
+        <div class="footer-section">
+            <h4>Company</h4>
+            <p>About Us</p>
+            <p>Careers</p>
+            <p>Privacy Policy</p>
+            <p>Terms of Service</p>
+        </div>
+
+        <!-- Quick Links Section -->
+        <div class="footer-section">
+            <h4>Quick Links</h4>
+            <p>Home</p>
+            <p>Product</p>
+            <p>contact as</p>
+            <p>About as</p>
+        </div>
+
+        <!-- Social Media Section -->
+        <div class="footer-section">
+            <h4>Follow Us</h4>
+            <a href="#" class="social-link">Facebook</a>
+            <a href="#" class="social-link">Instagram</a>
+            <a href="#" class="social-link">Twitter</a>
+            <a href="#" class="social-link">LinkedIn</a>
+        </div>
+
+        <!-- Newsletter Section -->
+        <div class="footer-section">
+            <h4>Newsletter</h4>
+            <p>Sign up to get the latest news and updates.</p>
+            <input type="email" placeholder="Enter your email" class="email-input">
+            <button class="btn-subscribe">Subscribe</button>
+        </div>
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+        <p>&copy; 2025 Your Company Name. All Rights Reserved.</p>
+    </div>
+</footer>
+<script src="./design/css/script.js"  defer></script>
+ </body>
+ </html>

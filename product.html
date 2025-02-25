@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <link rel="stylesheet" href="./design/css/style.css">
+    <link rel="stylesheet" href="./design/css/mobile.css">
+
+<nav class="navbar">
+   <div class="container">
+       <a class="navbar-brand" href="#">
+           <img src="./pty.png" alt="Logo"> <!-- Replace with your logo URL -->
+       </a>
+       <ul class="nav-links">
+        <li><a href="./home-page.html">Home</a></li>
+        <li><a href="./product.html">Product</a></li>
+        <li><a href="./about_as.html">About</a></li>
+        <li><a href="./contac.html">Contact</a></li>
+        <li><a href="./hekp.html">Help</a></li>
+          <!-- Cart Container -->
+<div class="cart-container">
+🛒 <span id="cart-count">0</span>
+<div id="cart-dropdown" class="cart-dropdown">
+   <p id="empty-message">Your cart is empty</p>
+   <ul id="cart-items"></ul>
+   <p>Total: ₱ <span id="cart-total">0</span></p>
+   <button id="checkout-btn" class="checkout-btn" onclick="proceedToCheckout()">Proceed to Checkout</button>
+</div>
+</div>
+
+<!-- Checkout    Modal -->
+<div id="checkout-modal" class="modal">
+<div class="modal-content">
+   <span class="close-btn" onclick="closeCheckoutModal()">&times;</span>
+   <h2>Checkout Details</h2>
+   <ul id="checkout-items"></ul>
+   <p><strong>Total: ₱ <span id="checkout-total">0</span></strong></p>
+   <button class="confirm-btn" onclick="confirmOrder()">Confirm Order</button>
+</div>
+</div>
+
+           
+</nav>
+
+
+
+<section class="product-section" id="product">
+    <h2>Product</h2>
+    
+    <!-- Search Bar -->
+    <div class="search-bar">
+        <input type="text" id="search-input" placeholder="Search products..." oninput="filterProducts()">
+    </div>
+    
+
+    <div class="product-container">
+        <!-- Product 1 -->
+        <div class="product" data-name="Organic Free-Range Chicken" data-price="1200">
+            <img src="./p1.jpeg" alt="Product 1" class="product-image">
+            <h3 class="product-name">Organic Free-Range Chicken</h3>
+            <p class="product-price">₱  1200</p>
+        <button class="btn add-to-cart">Add to Cart</button>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="product" data-name="Product 2">
+            <img src="./p2.avif" alt="Product 2" class="product-image">
+            <h3 class="product-name">Heritage Turkey Select</h3>
+            <p class="product-price">₱ 300</p>
+        <button class="btn add-to-cart">Add to Cart</button>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="product" data-name="Product 3">
+            <img src="./p3.avif" alt="Product 3" class="product-image">
+            <h3 class="product-name">Smoked Turkey Breast</h3>
+            <p class="product-price">₱ 300</p>
+        <button class="btn add-to-cart">Add to Cart</button>
+        </div>
+        <div class="product" data-name="Product 4">
+            <img src="./che5.jpg" alt="Product 4" class="product-image">
+            <h3 class="product-name">Crispy Wing Delights</h3>
+            <p class="product-price">₱ 150</p>
+        <button class="btn add-to-cart">Add to Cart</button>
+        </div>
+        <div class="product" data-name="Product 5">
+            <img src="./che2.jpg" alt="Product 5" class="product-image">
+            <h3 class="product-name">Spicy Chicken Tenders</h3>
+            <p class="product-price">₱ 450</p>
+        <button class="btn add-to-cart">Add to Cart</button>
+        </div>
+        <div class="product" data-name="Product 6">
+            <img src="./ch4.jpg" alt="Product 6" class="product-image">
+            <h3 class="product-name">Premium Poultry Cuts</h3>
+            <p class="product-price">₱ 550</p>
+        <button class="btn add-to-cart">Add to Cart</button>
+        </div>
+        <div class="product" data-name="Product 7">
+            <img src="./eg.jpg" alt="Product 7" class="product-image">
+            <h3 class="product-name">Golden Egg Layer</h3>
+            <p class="product-price">₱ 50</p>
+        <button class="btn add-to-cart">Add to Cart</button>
+        </div>
+        <div class="product" data-name="Product 8">
+            <img src="./eg1.jpg" alt="Product 8" class="product-image">
+            <h3 class="product-name">Golden Egg Layer</h3>
+            <p class="product-price">₱120</p>
+        <button class="btn add-to-cart">Add to Cart</button>
+        </div>
+        <div class="product" data-name="Product 9">
+            <img src="./egg5.jpg" alt="Product 9" class="product-image">
+            <h3 class="product-name">Farm Fresh Chicken</h3>
+            <p class="product-price">₱ 200</p>
+        <button class="btn add-to-cart">Add to Cart</button>
+
+
+
+        
+        </div>
+        
+        
+
+         
+<br><br><br>
+
+        
+     
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+            document.querySelectorAll(".add-to-cart").forEach(button => {
+                button.addEventListener("click", function() {
+                    Swal.fire({
+                        title: "Success!",
+                        text: "Item added to cart successfully!",
+                        icon: "success",
+                        timer: 2000,  // Auto-close after 2 seconds
+                        showConfirmButton: false,
+                        position: "center"  // Centers the alert in the page
+                    });
+                });
+            });
+        });
+
+        
+document.addEventListener("DOMContentLoaded", () => {
+    let cartItems = [];
+
+    document.querySelectorAll(".add-to-cart").forEach(button => {
+        button.addEventListener("click", function () {
+            let product = this.closest(".product");
+            let productName = product.querySelector(".product-name").textContent;
+            let productPrice = parseFloat(product.querySelector(".product-price").textContent.replace("₱", "").trim());
+            let productImage = product.querySelector(".product-image").src;
+
+            // Add product to cart array
+            cartItems.push({ name: productName, price: productPrice, image: productImage });
+
+            // Update cart UI
+            updateCartDropdown();
+
+            // Show success message
+            Swal.fire({
+                title: "Success!",
+                text: "Item added to cart successfully!",
+                icon: "success",
+                timer: 2000,
+                showConfirmButton: false,
+                position: "center"
+            });
+        });
+    });
+
+    function updateCartDropdown() {
+        let cartDropdown = document.getElementById("cart-items");
+        let emptyMessage = document.getElementById("empty-message");
+        let cartCount = document.getElementById("cart-count");
+        let cartTotal = document.getElementById("cart-total");
+
+        // Clear previous cart content
+        cartDropdown.innerHTML = "";
+
+        if (cartItems.length === 0) {
+            emptyMessage.style.display = "block"; // Show "Your cart is empty"
+            cartTotal.textContent = "0"; // Reset total price
+        } else {
+            emptyMessage.style.display = "none"; // Hide empty message
+            let total = 0;
+
+            cartItems.forEach(item => {
+                let itemElement = document.createElement("li");
+                itemElement.classList.add("cart-item");
+                itemElement.innerHTML = `
+                    <img src="${item.image}" alt="${item.name}" width="50">
+                    <div>
+                        <p><strong>${item.name}</strong></p>
+                        <p>₱ ${item.price.toFixed(2)}</p>
+                    </div>
+                `;
+                cartDropdown.appendChild(itemElement);
+                total += item.price;
+            });
+
+            cartTotal.textContent = total.toFixed(2);
+        }
+
+        // Update cart count
+        cartCount.textContent = cartItems.length;
+    }
+
+    function proceedToCheckout() {
+        if (cartItems.length === 0) {
+            Swal.fire({
+                title: "Oops!",
+                text: "Your cart is empty.",
+                icon: "warning",
+                timer: 2000,
+                showConfirmButton: false
+            });
+        } else {
+            let modal = document.getElementById("checkout-modal");
+            let checkoutList = document.getElementById("checkout-items");
+            let checkoutTotal = document.getElementById("checkout-total");
+
+            // Clear previous content
+            checkoutList.innerHTML = "";
+            let total = 0;
+
+            // Populate modal with cart items
+            cartItems.forEach(item => {
+                let itemElement = document.createElement("li");
+                itemElement.innerHTML = `
+                    <img src="${item.image}" alt="${item.name}" width="50">
+                    <div>
+                        <p><strong>${item.name}</strong></p>
+                        <p>₱ ${item.price.toFixed(2)}</p>
+                    </div>
+                `;
+                checkoutList.appendChild(itemElement);
+                total += item.price;
+            });
+
+            checkoutTotal.textContent = total.toFixed(2);
+
+            // Show modal
+            modal.style.display = "block";
+        }
+    }
+
+    function closeCheckoutModal() {
+        document.getElementById("checkout-modal").style.display = "none";
+    }
+
+    function confirmOrder() {
+        Swal.fire({
+            title: "Order Confirmed!",
+            text: "Your order has been placed successfully.",
+            icon: "success",
+            confirmButtonText: "OK"
+        }).then(() => {
+            cartItems = []; // Clear cart after order
+            updateCartDropdown();
+            closeCheckoutModal();
+        });
+    }
+
+    // Close modal when clicking outside
+    window.onclick = function (event) {
+        let modal = document.getElementById("checkout-modal");
+        if (event.target === modal) {
+            modal.style.display = "none";
+        }
+    };
+
+    // Make functions available globally
+    window.proceedToCheckout = proceedToCheckout;
+    window.closeCheckoutModal = closeCheckoutModal;
+    window.confirmOrder = confirmOrder;
+});
+        </script>
+        
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+        <script src="./design/css/script.js"  defer></script>
+
+    </div>
+</section>
+</body>
+</html>
