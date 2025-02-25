@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar with Logo</title>
+    <link rel="stylesheet" href="./design/css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="./pty.png" alt="Logo"> <!-- Replace with your logo URL -->
+            </a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#product">Product</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#help">Help</a></li>
+               <!-- Cart Container -->
+<div class="cart-container">
+    🛒 <span id="cart-count">0</span>
+    <div id="cart-dropdown" class="cart-dropdown">
+        <p id="empty-message">Your cart is empty</p>
+        <ul id="cart-items"></ul>
+        <p>Total: ₱ <span id="cart-total">0</span></p>
+        <button id="checkout-btn" class="checkout-btn" onclick="proceedToCheckout()">Proceed to Checkout</button>
+    </div>
+</div>
+
+<!-- Checkout    Modal -->
+<div id="checkout-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeCheckoutModal()">&times;</span>
+        <h2>Checkout Details</h2>
+        <ul id="checkout-items"></ul>
+        <p><strong>Total: ₱ <span id="checkout-total">0</span></strong></p>
+        <button class="confirm-btn" onclick="confirmOrder()">Confirm Order</button>
+    </div>
+</div>
+
+                
+    </nav>
+
+    <div class="content-wrapper">
+        <!-- Left Paragraph -->
+        <div class="paragraph left">
+            <p>
+
+              
+                Poultry farming is more than just raising chickens—it’s a key part of feeding the world. Every day, farmers work hard to provide fresh, nutritious meat and eggs that millions of people rely on. As demand grows, technology is changing the way poultry is raised, making farms more efficient and sustainable. From automated feeding systems to climate-controlled barns and health-monitoring tools, farmers now have more ways to ensure their flocks stay healthy and well cared for. Beyond just food production, poultry farming also supports local communities by creating jobs and driving businesses that supply feed, equipment, and veterinary services. Consumers today are also looking for healthier, more ethical choices, pushing farmers to embrace free-range and organic methods that balance quality with sustainability. The future of poultry farming isn’t just about producing more—it’s about doing it responsibly, innovating, and meeting the changing needs of people around the world.            </p>
+        </div>
+    
+        <div class="carousel" id="home">
+            <div class="carousel-container">
+                <div class="slide" style="background-image: url('./01ee6e52-5349-474f-b72e-2b976837bb57.jpg');">
+                    <div class="caption">Welcome to Poultry ni Mang AG</div>            
+                    <div class="caption">Ayam Cemani are a medium-sized fowl, with a trim form, that boasts of strength and virility. </div>            
+
+                </div>
+                <div class="slide" style="background-image: url('./9cba9ef5-3438-45e4-b55f-2222f1e6cc67.jpg');">
+                    <div class="caption">he Luikse Vechter is a large and powerful bird. The face is deeply pigmented, and may vary from purplish-red to almost black.</div>
+                </div>
+                <div class="slide" style="background-image: url('./e66da24f-ef1f-403f-a772-ec64cd345c0f.jpg');">
+                    <div class="caption">The Serama are characterized by their upright posture, full breast, vertical tail feathers held upright and tight up to the body and vertical wings held down nearly touching the ground       </div>
+                </div>
+
+                <div class="slide" style="background-image: url('./e66da24f-ef1f-403f-a772-ec64cd345c0f.jpg');">
+                    <div class="caption">The Serama are characterized by their upright posture, full breast, vertical tail feathers held upright and tight up to the body and vertical wings held down nearly touching the ground       </div>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Right Paragraph -->
+        <div class="paragraph right">
+            <p>
+                Chickens are widely domesticated for meat and eggs, originating from wild jungle fowl. They are social animals with a structured pecking order and diverse breeds suited for farming. Poultry farming supports global food production, ranging from large-scale operations to backyard coops. Chickens contribute to sustainability through natural foraging and manure fertilization, but large-scale farming poses environmental challenges. As demand for ethical and sustainable poultry grows, the future relies on responsible and innovative farming practices.
+            </p>
+        </div>
+    </div>
+
+    <!-- About Section with Parallax Effect -->
+    <section class="about-section" id="about">
+        <div class="about-content">
+            <h2>About Us</h2>
+            <p>Welcome to our farm! We pride ourselves on raising the healthiest 
+                and happiest chickens, ensuring you get the best eggs and poultry products every 
+                time. Our farm is built on love, care, and sustainability. Join us in supporting 
+                local poultry farming!</p>
+        </div>
+        <div class="about-image">
+            <img src="./OIP (1).jpg" alt="Happy Chickens on the Farm">
+        </div>
+    </section>
+   
+    <section class="product-section" id="product">
+        <h2>Product</h2>
+        
+        <!-- Search Bar -->
+        <div class="search-bar">
+            <input type="text" id="search-input" placeholder="Search products..." oninput="filterProducts()">
+        </div>
+        <br><br>
+    
+        <div class="product-container">
+            <!-- Product 1 -->
+            <div class="product" data-name="Organic Free-Range Chicken" data-price="1200">
+                <img src="./p1.jpeg" alt="Product 1" class="product-image">
+                <h3 class="product-name">Organic Free-Range Chicken</h3>
+                <p class="product-price">₱  1200</p>
+            <button class="btn add-to-cart">Add to Cart</button>
+            </div>
+    
+            <!-- Product 2 -->
+            <div class="product" data-name="Product 2">
+                <img src="./p2.avif" alt="Product 2" class="product-image">
+                <h3 class="product-name">Heritage Turkey Select</h3>
+                <p class="product-price">₱ 300</p>
+            <button class="btn add-to-cart">Add to Cart</button>
+            </div>
+    
+            <!-- Product 3 -->
+            <div class="product" data-name="Product 3">
+                <img src="./p3.avif" alt="Product 3" class="product-image">
+                <h3 class="product-name">Smoked Turkey Breast</h3>
+                <p class="product-price">₱ 300</p>
+            <button class="btn add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product" data-name="Product 4">
+                <img src="./che5.jpg" alt="Product 4" class="product-image">
+                <h3 class="product-name">Crispy Wing Delights</h3>
+                <p class="product-price">₱ 150</p>
+            <button class="btn add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product" data-name="Product 5">
+                <img src="./che2.jpg" alt="Product 5" class="product-image">
+                <h3 class="product-name">Spicy Chicken Tenders</h3>
+                <p class="product-price">₱ 450</p>
+            <button class="btn add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product" data-name="Product 6">
+                <img src="./ch4.jpg" alt="Product 6" class="product-image">
+                <h3 class="product-name">Premium Poultry Cuts</h3>
+                <p class="product-price">₱ 550</p>
+            <button class="btn add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product" data-name="Product 7">
+                <img src="./eg.jpg" alt="Product 7" class="product-image">
+                <h3 class="product-name">Golden Egg Layer</h3>
+                <p class="product-price">₱ 50</p>
+            <button class="btn add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product" data-name="Product 8">
+                <img src="./eg1.jpg" alt="Product 8" class="product-image">
+                <h3 class="product-name">Golden Egg Layer</h3>
+                <p class="product-price">₱120</p>
+            <button class="btn add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product" data-name="Product 9">
+                <img src="./egg5.jpg" alt="Product 9" class="product-image">
+                <h3 class="product-name">Farm Fresh Chicken</h3>
+                <p class="product-price">₱ 200</p>
+            <button class="btn add-to-cart">Add to Cart</button>
+            </div>
+            
+            
+            
+         
+          
+            
+           
+           
+         
+        </div>
+    </section>
+
+     <!-- Success Modal -->
+     
+
+
+<!---Contact us details-->
+    <section class="contact-section" id="contact">
+    <h2>Contact Us</h2>
+    <div class="contact-container">
+        <div class="contact-info">
+            <h2>Company  <span> Poultry Chicken Happy </span></h3>
+            <p>Email: Paultry@gmail.com</p>
+            <p>Phone: +1234567890</p>
+            <p>Address: 123 Company St., City, Country</p>
+        </div>
+
+        <div class="contact-form">
+            <h3>Leave Us a Message</h3>
+            <form id="contactForm">
+                <label for="name">Your Name</label>
+                <input type="text" id="name" name="name" placeholder="Your name" required>
+                
+                <label for="email">Your Email</label>
+                <input type="email" id="email" name="email" placeholder="Your email" required>
+                
+                <label for="phone">Your Phone</label>
+                <input type="tel" id="phone" name="phone" placeholder="Your phone number" required>
+                
+                <label for="address">Your Address</label>
+                <input type="text" id="address" name="address" placeholder="Your address" required>
+                
+                <label for="comment">Your Message</label>
+                <textarea id="comment" name="comment" placeholder="Your message" required></textarea>
+        
+                <button type="submit">Submit</button>
+            </form>
+    </div>
+</section>
+
+<section id="help">
+    <div class="help-container">
+        <h2>Need Help?</h2>
+        <p>If you have any questions about our poultry Poultry ni Mang AG , feel free to contact us. We’re here to assist you!</p>
+
+        <!-- Contact Info -->
+        <div class="contact-infos">
+            <p><strong>Email:</strong> support@poultryfarm.com</p>
+            <p><strong>Phone:</strong> +1 234 567 890</p>
+            <p><strong>Address:</strong> 123 Farm Road, Poultryville</p>
+        </div>
+
+        <!-- Contact Form -->
+        <form class="help-form" id="helpForm">
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" placeholder="Enter your name" required>
+        
+            <label for="email">Your Email:</label>
+            <input type="email" id="email" placeholder="Enter your email" required>
+        
+            <label for="message">Your Message:</label>
+            <textarea id="message" rows="4" placeholder="Write your message" required></textarea>
+        
+            <button type="submit">Send Message</button>
+        </form>
+        
+        <!-- Success Message (Hidden Initially) -->
+        <div id="success-message" class="success-message" style="display: none;">
+            ✅ Your message has been sent successfully!
+        </div>
+        
+    </div>
+</section>
+<footer class="footer">
+    <div class="footer-container">
+        <!-- Company Info Section -->
+        <div class="footer-section">
+            <h4>Company</h4>
+            <p>About Us</p>
+            <p>Careers</p>
+            <p>Privacy Policy</p>
+            <p>Terms of Service</p>
+        </div>
+
+        <!-- Quick Links Section -->
+        <div class="footer-section">
+            <h4>Quick Links</h4>
+            <p>Home</p>
+            <p>Product</p>
+            <p>contact as</p>
+            <p>About as</p>
+        </div>
+
+        <!-- Social Media Section -->
+        <div class="footer-section">
+            <h4>Follow Us</h4>
+            <a href="#" class="social-link">Facebook</a>
+            <a href="#" class="social-link">Instagram</a>
+            <a href="#" class="social-link">Twitter</a>
+            <a href="#" class="social-link">LinkedIn</a>
+        </div>
+
+        <!-- Newsletter Section -->
+        <div class="footer-section">
+            <h4>Newsletter</h4>
+            <p>Sign up to get the latest news and updates.</p>
+            <input type="email" placeholder="Enter your email" class="email-input">
+            <button class="btn-subscribe">Subscribe</button>
+        </div>
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+        <p>&copy; 2025 Your Company Name. All Rights Reserved.</p>
+    </div>
+</footer>
+
+
+<style>
+    
+</style>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll(".add-to-cart").forEach(button => {
+        button.addEventListener("click", function() {
+            Swal.fire({
+                title: "Success!",
+                text: "Item added to cart successfully!",
+                icon: "success",
+                timer: 2000,  // Auto-close after 2 seconds
+                showConfirmButton: false,
+                position: "center"  // Centers the alert in the page
+            });
+        });
+    });
+});
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="./design/css/script.js"  defer></script>
+</body>
+</html>
